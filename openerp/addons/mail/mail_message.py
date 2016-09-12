@@ -758,7 +758,7 @@ class mail_message(osv.Model):
                 self.pool['mail.thread'].check_mail_message_access(cr, uid, mids, operation, model_obj=model_obj, context=context)
             document_related_ids += [mid for mid, message in message_values.iteritems()
                                      if message.get('model') == model and message.get('res_id') in mids]
-
+        return   # Jeff said you needn't check access for no-sense mails
         # Calculate remaining ids: if not void, raise an error
         other_ids = other_ids.difference(set(document_related_ids))
         if not other_ids:
