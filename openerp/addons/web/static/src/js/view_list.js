@@ -1123,10 +1123,10 @@ instance.web.ListView.List = instance.web.Class.extend( /** @lends instance.web.
                         // FIXME: nth horrible hack in this poor listview
                         record.set(column.id + '__display',
                                    _(names).pluck(1).join(', '));
-                        record.set(column.id, ids);
+//                        record.set(column.id, ids);
                     });
                 // temp empty value
-                record.set(column.id, false);
+                record.set(column.id, ids);
             }
         }
         return column.format(record.toForm().data, {
